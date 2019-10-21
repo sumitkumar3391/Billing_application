@@ -1,0 +1,38 @@
+﻿<Window x:Class="Billing_application.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Billing_application"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.ColumnSpan="2" Margin="0,0,0,170" Background="LightGray">
+            <TextBlock HorizontalAlignment="Center" Text="New Customer" Width="250" FontSize="30"  FontWeight="Bold" FontStyle="Italic" />
+
+
+
+        </DockPanel>
+
+        <Label Grid.Row="0" Grid.Column="0" Background="AliceBlue" Content="Last Name"  FontSize="15" FontWeight="Bold" Margin="0,101,207,81" />
+        <Label Grid.Row="0" Grid.Column="0" Background="AliceBlue" Content="First Name"  FontSize="15" FontWeight="Bold" Margin="0,56,207,125" />
+        <Label Grid.Row="0" Grid.Column="0" Background="AliceBlue" Content="Phone Number" FontSize="15" FontWeight="Bold" Margin="0,145,207,35" />
+        <TextBox Margin="209,56,10,125" Text="{Binding FirstName}"/>
+        <TextBox Margin="209,101,10,81" RenderTransformOrigin="0.492,1.938" Text="{Binding LastName}"/>
+        <TextBox Margin="209,145,10,35" RenderTransformOrigin="0.512,3.665" Text="{Binding PhoneNumber}"/>
+        <Button Grid.Column="0" Grid.Row="1" Margin="209,10,10,147" Content="Add Customer" FontSize="20" FontStyle="Normal" FontStretch="Expanded" FontWeight="Bold" Click="Button_Click"/>
+        
+
+
+
+
+    </Grid>
+</Window>

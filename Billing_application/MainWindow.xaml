@@ -1,0 +1,97 @@
+﻿<Window x:Class="Billing_application.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Billing_application"
+       
+        
+        xmlns:vm="clr-namespace:Billing_application.ViewModels"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    
+
+    <Grid Margin="0,0,2,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <StackPanel Grid.Row="0" Grid.Column="0"  Orientation="Vertical">
+            <Label Content="Mobile Number" FontWeight="Bold" Margin="0,0,251,0" RenderTransformOrigin="0.502,1.345" />
+            <TextBox  Name="txtbox1" Text="{Binding Path=Number,UpdateSourceTrigger=PropertyChanged}" Height="36"  TextChanged="Txtbox1_TextChanged"  KeyDown="Txtbox1_KeyDown" />
+            <Label x:Name="label1"  Background="AliceBlue" Height="32" FontSize="15" Margin="0,0,10,0"/>
+            <Button Content="ADD CUSTOMER" Background="LightSlateGray" Click="Button_Click" />
+        </StackPanel>
+        <Grid Grid.Row="0" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Orientation="Vertical">
+                <Label Content="Select Item" Background="AliceBlue"/>
+                <Label Content="Item Price" Background="AliceBlue"/>
+                <Label Content="Select Quantity" Background="AliceBlue"/>
+                <Label Content="Discount" Background="AliceBlue"/>
+                
+
+            </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Vertical" >
+                <!--<TextBox KeyUp="TextBox_KeyUp" Name="textbox" />
+                <Border BorderBrush="Black" BorderThickness="1">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel Name="resultstack"></StackPanel>
+                    </ScrollViewer>
+                </Border>-->
+                
+                <ComboBox Name="combo1" ItemsSource="{Binding ListSecondItems }" DisplayMemberPath="ItemName" Height="26" />
+                <TextBlock  Name="txtblock1" Text="{Binding ElementName=combo1, Path=SelectedItem.ItemPrice}" Background="AliceBlue" Height="26"/>
+
+                <TextBox Name="txtbox2" Text="{Binding Quantity, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Background="AliceBlue" Height="26" KeyDown="TextBox_KeyDown"/>
+                <TextBlock  Name="txtblock2" Text="{Binding ElementName=combo1 , Path=SelectedItem.Discount}" Background="AliceBlue" Height="26"/>
+                
+
+
+
+            </StackPanel>
+            
+            
+
+        </Grid>
+        <DataGrid  Name="Gridview1" Grid.Column="0" Grid.Row="1" ItemsSource="{Binding ListItems}" >
+            
+                
+        </DataGrid>
+        <Grid Grid.Row="2" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Orientation="Vertical">
+                <Label Content="Quantity"/>
+                <Label Content="Discount"/>
+                <Label Content="Subtotal"/>
+                <Label Content="Total"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Vertical">
+                <TextBlock Name="txtquantity"  Background="LightSkyBlue" Height="26"/>
+                <TextBlock Name="txtdiscount" Background="LightSkyBlue" Height="26"/>
+                <TextBlock Name="txtsubtotal" Background="LightSkyBlue" Height="26"/>
+                <TextBlock Name="txttotal" Background="LightSkyBlue" Height="26"/>
+            </StackPanel>
+            
+        </Grid>
+
+
+
+
+
+
+    </Grid>
+</Window>
